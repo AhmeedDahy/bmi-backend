@@ -26,12 +26,15 @@ async def submit_form(data: BMICalculator):
     Endpoint to calculate BMI given height and weight.
     Accepts JSON payload with 'weight' and 'height'.
     """
-    # Inline BMI Calculation
-    bmi = round(data.weight / ((data.height / 100) ** 2), 2)  # Height in cm
+    calc = bmi(data.weight,data.height)
+    res = calc.calculate_bmi()
+
+
+    
 
     return JSONResponse(content={
         "message": "Form received successfully",
         "data": {
-            "bmi": bmi
+            "bmi": res
         }
     })
