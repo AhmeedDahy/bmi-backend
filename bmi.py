@@ -12,7 +12,6 @@ class bmi:
             "Overweight":30,
         }
         for key, value in classes.items():
-            print(value)
             if self.bmi < value:
                 return [round(self.bmi, 1), key]
         return [round(self.bmi, 1), 'Obesity']
